@@ -1,16 +1,22 @@
 package day07_actionClass_fileTestleri;
-
-import org.junit.Test;
-import utilities.TestBase;
-
 import java.nio.file.Files;
+import java.nio.file.LinkOption;
 import java.nio.file.Paths;
+import org.junit.Test;
 
-public class C04_FilePath extends TestBase{
+public class C04_FilePath {
+    public C04_FilePath() {
+    }
+
     @Test
-    public void Test(){
-        String filePath= "C:/Users/hasan/Desktop/aa.txt";
-          boolean result= Files.exists(Paths.get(filePath));
-        System.out.println(result);
+    public void test01() {
+        String dosyaYolu = "/Users/ahmetbulutluoz/Desktop/Thedelta.docx";
+        boolean sonuc = Files.exists(Paths.get(dosyaYolu), new LinkOption[0]);
+        System.out.println(sonuc);
+        System.out.println(System.getProperty("user.home"));
+        dosyaYolu = "/Users/ahmetbulutluoz/Desktop/Thedelta.docx";
+        dosyaYolu = System.getProperty("user.home") + "/Desktop/Thedelta.docx";
+        System.out.println(System.getProperty("user.dir"));
     }
 }
+
